@@ -125,9 +125,21 @@ def news_response(voice_input):
 
 
 pharse_list.append(Type_pharse([
-    'новости',
+    'что случилось сегодня'
 
 ],news_response))
+
+
+def news_dou(voice_input):
+    result = requests.get("https://dou.ua/",headers={'Accept':'*/*','User-agent':'d'})
+    soup = BeautifulSoup(result.text,'html.parser')
+    news = soup.find('a',{'class':'link'}).next_element.next_element.next_element.next_element.next_element
+    tts_engine.say(news.text)
+
+
+pharse_list.append(Type_pharse([
+    'новости программирования'
+],news_dou))
 
 
 def film(voice_input):
@@ -149,6 +161,10 @@ def film(voice_input):
 pharse_list.append(Type_pharse([
     'сериал'
 ],film))
+
+
+
+
     
 
 
