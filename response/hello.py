@@ -90,6 +90,18 @@ pharse_list.append(Type_pharse([
 ],course_value))
 
 
+def corse_euro(voice_input):
+    result = requests.get("https://api.monobank.ua/bank/currency")
+    res = json.loads(result.text)
+    output = (res[1]['rateBuy'])
+    tts_engine.say(f"Покупка евро {output}")
+
+
+pharse_list.append(Type_pharse([
+    'курс евро','открой мне курс евро'
+],corse_euro))
+
+
 def news_response(voice_input):
    result = requests.get("https://www.bbc.com/ukrainian")
    soup = BeautifulSoup(result.text,'html.parser')
