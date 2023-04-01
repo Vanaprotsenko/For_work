@@ -1,3 +1,5 @@
 a =5
 b = 4
-print(a+b)
+c=a-b
+z = a+b+c
+print(sum(z))
