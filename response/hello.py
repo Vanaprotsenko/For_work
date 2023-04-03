@@ -178,9 +178,3 @@ pharse_list.append(Type_pharse([
 ],has_rain_in_city))
 
 
-
-
-
-    
-
-
