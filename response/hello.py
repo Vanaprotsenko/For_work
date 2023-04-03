@@ -163,6 +163,22 @@ pharse_list.append(Type_pharse([
 ],film))
 
 
+def has_rain_in_city(voice_input):
+    result = requests.get("https://sinoptik.ua/")
+    soup = BeautifulSoup(result.text,'html.parser')
+    if 'есть ли дождь в киеве' in voice_input:
+        rain = soup.find('div',{'class':'description'}).next_element.next_element.next_element
+        tts_engine.say(rain)
+    else:
+        tts_engine.say("нет")
+
+
+pharse_list.append(Type_pharse([
+    'есть ли дождь в киеве'
+],has_rain_in_city))
+
+
+
 
 
     
